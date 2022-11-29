@@ -16,10 +16,15 @@ let number_letter_array_object = {
   15: "quinze",
   16: "seize",
   20: "vingt",
+  21: "vingt-et-un",
   30: "trente",
+  31: "trente-et-un",
   40: "quarante",
+  41: "quarante-et-un",
   50: "cinquante",
+  51: "cinquante-et-un",
   60: "soixante",
+  61: "soixante-et-un",
   70: "soixante-dix",
   71: "soixante-et-onze",
   72: "soixante-douze",
@@ -38,6 +43,7 @@ let number_letter_array_object = {
   100: "cent",
   1000: "mille",
 };
+
 function number_to_letter(number) {
   for (let key in number_letter_array_object) {
     if (number == key) {
@@ -82,7 +88,18 @@ function number_to_letter(number) {
 }
 
 function one_number_to_letter(number) {
-  alert(number + " = " + number_to_letter(number));
+  if (number_to_letter(number).indexOf("-zéro") > 0) {
+    alert(
+      number +
+        " = " +
+        number_to_letter(number).slice(
+          0,
+          number_to_letter(number).indexOf("-zéro")
+        )
+    );
+  } else {
+    alert(number + " = " + number_to_letter(number));
+  }
 }
 
 function boucle_number_to_letter(number) {

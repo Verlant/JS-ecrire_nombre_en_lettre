@@ -52,19 +52,19 @@ function number_to_letter(number) {
   }
   if (number == 0) {
     return "zéro";
-  } else if (number % 10 < 100) {
+  } else if (Math.trunc(number / 10) <= 9) {
     return (
       number_letter_array_object[Math.trunc(number / 10) * 10] +
       "-" +
       number_to_letter(number % 10)
     );
-  } else if (number == 100) {
+  } else if (Math.trunc(number / 100) == 1) {
     return (
       number_letter_array_object[Math.trunc(number / 100) * 100] +
       "-" +
       number_to_letter(number % 100)
     );
-  } else if (number % 100 > 100 && number % 100 < 1000) {
+  } else if (Math.trunc(number / 100) <= 9 && Math.trunc(number / 100) != 1) {
     return (
       number_letter_array_object[Math.trunc(number / 100)] +
       "-" +
@@ -72,7 +72,7 @@ function number_to_letter(number) {
       "-" +
       number_to_letter(number % 100)
     );
-  } else if (number == 1000) {
+  } else if (Math.trunc(number / 1000) == 1) {
     return (
       number_letter_array_object[1000] + "-" + number_to_letter(number % 1000)
     );

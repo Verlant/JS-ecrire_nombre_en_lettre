@@ -52,7 +52,7 @@ function number_to_letter(number) {
   }
   if (number == 0) {
     return "zéro";
-  } else if (number < 100) {
+  } else if (number % 10 < 100) {
     return (
       number_letter_array_object[Math.trunc(number / 10) * 10] +
       "-" +
@@ -64,7 +64,7 @@ function number_to_letter(number) {
       "-" +
       number_to_letter(number % 100)
     );
-  } else if (number > 100 && number < 1000) {
+  } else if (number % 100 > 100 && number % 100 < 1000) {
     return (
       number_letter_array_object[Math.trunc(number / 100)] +
       "-" +

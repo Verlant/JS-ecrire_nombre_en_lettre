@@ -44,6 +44,10 @@ let number_letter_array_object = {
   1000: "mille",
 };
 
+/**convertie un nombre en lettre, exemple : 121 = cent-vingt-et-un
+ * @param {int} number
+ * @returns {string}
+ */
 function number_to_letter(number) {
   for (let key in number_letter_array_object) {
     if (number == key) {
